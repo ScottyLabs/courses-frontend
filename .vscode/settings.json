@@ -7,6 +7,7 @@
     },
     "files.readonlyInclude": {
         "src/routeTree.gen.ts": true,
+        "src/lib/schema.d.ts": true,
         "bun.lock": true
     },
     "files.insertFinalNewline": true,
