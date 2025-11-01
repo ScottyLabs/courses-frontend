@@ -1,14 +1,14 @@
 import { Link } from "@tanstack/react-router";
 import { useLocation } from "@tanstack/react-router";
-import { Clock, SearchMd, Star01, UserSquare, Sun, LogOut01, User02 } from "@scottylabs/corgi";
+import { Clock, SearchMd, Star01, UserSquare, Sun, LogOut01, User02, BookOpen02 } from "@scottylabs/corgi";
 import { useState } from "react";
 import type { ReactElement } from "react";
 
 const HEADER_LINKS = [
   {
     text: "Courses",
-    icon: <SearchMd />,
-    link: "/course/search" // Should this link to a search page?
+    icon: <BookOpen02 />,
+    link: "/course/search"
   },
   {
     text: "Instructors",
