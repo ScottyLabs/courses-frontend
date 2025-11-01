@@ -2,21 +2,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 @theme {
-  --color-stroke-brandNeutral-1: #9EB1C2;
-  --color-bg-brandNeutral-secondary-pressed: #C7D2DC;
-  --color-bg-brandNeutral-primary: #4A5662;
-  --color-bg-brandNeutral-secondary: #7A8FA3;
-  --color-bg-brandNeutral-secondary-enabled: #F0F4F8;
-  --color-bg-brandNeutral-secondary-hover: #D9E1E7;
-  --color-bg-brandNeutral-subtle-pressed: #D9E1E7;
+  --color-stroke-brandNeutral-1: #9eb1c2;
+  --color-bg-brandNeutral-secondary-pressed: #c7d2dc;
+  --color-bg-brandNeutral-primary: #4a5662;
+  --color-bg-brandNeutral-secondary: #7a8fa3;
+  --color-bg-brandNeutral-secondary-enabled: #f0f4f8;
+  --color-bg-brandNeutral-secondary-hover: #d9e1e7;
+  --color-bg-brandNeutral-subtle-pressed: #d9e1e7;
   --color-bg-brandNeutral-subtle-enabled: #ffffff;
-  --color-bg-disabled-brandNeutral: #f0F4F8;
+  --color-bg-disabled-brandNeutral: #f0f4f8;
   --color-bg-neutral-primary: #ffffff;
-  --color-fg-brandNeutral-secondary: #7A8FA3;
+  --color-fg-brandNeutral-secondary: #7a8fa3;
   --color-fg-onBrand-primary: #ffffff;
-  --color-fg-primary: #4A5662;
-  --color-fg-brand-secondary: #0D89BE;
-  --color-fg-brandNeutral-primary: #4A5662;
+  --color-fg-primary: #4a5662;
+  --color-fg-brand-secondary: #0d89be;
+  --color-fg-brandNeutral-primary: #4a5662;
   --color-fg-neutral-onInverse: #ffffff;
   --color-fg-neutral-primary: #1e1e1e;
 }
