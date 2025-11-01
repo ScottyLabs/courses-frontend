@@ -2,6 +2,7 @@ import ScheduleListing from '@/components/ScheduleListing';
 import { fakeSchedule } from '@/util/fakeinfo';
 import { ChevronDown } from '@scottylabs/corgi';
 import { createFileRoute } from '@tanstack/react-router';
+import ProfileLayout from '@/components/ProfileLayout';
 
 export const Route = createFileRoute('/profile/schedule')({
   component: RouteComponent,
@@ -13,6 +14,7 @@ const SEMESTERS = ["Fall", "Spring", "Summer"];
 
 function RouteComponent() {
     return (
+        <ProfileLayout>
         <div className="flex flex-col w-full">
             <div className="p-6 bg-white">
                 <h1 className="text-2xl font-semibold text-gray-900 mb-6">Schedule</h1>
@@ -32,5 +34,6 @@ function RouteComponent() {
             </div>
             <ScheduleListing schedules={schedule} />
         </div>
+        </ProfileLayout>
     );
 }

@@ -2,6 +2,7 @@ import { createFileRoute } from '@tanstack/react-router'
 import { ChevronDown } from '@scottylabs/corgi';
 import CourseListing from '@/components/CourseListing';
 import {fakeCourses} from '@/util/fakeinfo';
+import ProfileLayout from '@/components/ProfileLayout';
 
 export const Route = createFileRoute('/profile/current')({
   component: RouteComponent,
@@ -15,6 +16,7 @@ const LEVELS = ['0XX-2XX', '3XX-4XX', '5XX-6XX', '7XX-9XX'];
 
 function RouteComponent() {
     return (
+        <ProfileLayout>
         <div className="flex flex-col w-full">
             <div className="p-6 bg-white">
                 <h1 className="text-2xl font-semibold text-gray-900 mb-6">Currently Taking</h1>
@@ -43,5 +45,6 @@ function RouteComponent() {
             </div>
             <CourseListing courses={courses} />
         </div>
+        </ProfileLayout>
     );
 }

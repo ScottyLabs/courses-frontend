@@ -5,9 +5,9 @@ import type { ReactElement } from "react";
 
 const HEADER_LINKS = [
   {
-    text: "Search",
+    text: "Courses",
     icon: <SearchMd />,
-    link: "/"
+    link: "/course/search"
   },
   {
     text: "Instructors",

@@ -1,5 +1,5 @@
 import { BookmarkAdd, CalendarDate, CalendarPlus02, Check, ChevronLeft, ChevronRight, Users01 } from '@scottylabs/corgi';
-import { Link } from '@tanstack/react-router';
+import { Link, useRouter } from '@tanstack/react-router';
 
 const USER_INFO = {
     name: 'Andrew Carnegie',
@@ -12,6 +12,9 @@ interface SidebarProps {
 }
 
 export default function Sidebar({ isOpen, onClose }: SidebarProps)  {
+  const { location } = useRouter().state;
+  const currentPath = location.pathname;
+
   if (!isOpen) return null;
 
   const menuItems = [
@@ -75,7 +78,12 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps)  {
               key={item.label}
               to={item.href}
               className="text-fg-brandNeutral-primary flex items-center justify-between px-4 py-3 hover:bg-bg-brandNeutral-secondary-enabled transition-colors [&.active]:bg-bg-brandNeutral-subtle-pressed"
-              onClick={onClose}
+              onClick={() => {
+                // Only close sidebar if navigating to a different page
+                if (currentPath !== item.href) {
+                  onClose();
+                }
+              }}
             >
               <div className="flex items-center space-x-3">
                 <item.icon className="h-5 w-5 text-gray-600" />
