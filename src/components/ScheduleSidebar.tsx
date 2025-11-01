@@ -44,7 +44,7 @@ export default function ScheduleSidebar({ isOpen, onClose }: SidebarProps) {
           <span className="text-lg font-semibold text-fg-brandNeutral-primary">Schedule</span>
           <button
             aria-label="Add schedule"
-            className="flex items-center justify-center h-6 w-6 rounded-full border border-stroke-brandNeutral-1 text-fg-brandNeutral-primary hover:bg-bg-brandNeutral-secondary-enabled cursor-pointer"
+            className="flex items-center justify-center h-6 w-6 rounded-full border-stroke-brandNeutral-1 text-fg-brandNeutral-primary hover:bg-bg-brandNeutral-secondary-enabled cursor-pointer"
           >
             <PlusCircle className="h-4 w-4" />
           </button>

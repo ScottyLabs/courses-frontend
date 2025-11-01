@@ -3,7 +3,7 @@ import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import { TanstackDevtools } from '@tanstack/react-devtools'
 import Header from '@/components/Header'
 import CourseHeader from '@/components/CourseHeader'
-import Sidebar from '@/components/Sidebar'
+import Sidebar from '@/components/ProfileSidebar'
 import ScheduleSidebar from '@/components/ScheduleSidebar'
 import Footer from '@/components/Footer'
 
@@ -15,7 +15,7 @@ export const Route = createRootRoute({
       ? <CourseHeader />
       : <Header />;
 
-    const isSchedulePage = pathname.startsWith('/schedules') || pathname.startsWith('/profile/schedule')
+    const isSchedulePage = pathname.startsWith('/schedules')
     const leftSidebar = isSchedulePage ? (<ScheduleSidebar isOpen={true} onClose={() => { }} />) : (<Sidebar isOpen={true} onClose={() => { }} />)
 
     return (
