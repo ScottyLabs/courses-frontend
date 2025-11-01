@@ -53,35 +53,40 @@ export default function RouteComponent() {
                     }}
                 >
                     <div 
-                        className="bg-bg-brandNeutral-secondary-enabled rounded-lg p-6 w-full max-w-md mx-4 shadow-xl"
+                        className="bg-bg-brandNeutral-secondary-enabled rounded-2xl p-8 w-fit mx-4 shadow-xl flex flex-col"
                         onClick={(e) => e.stopPropagation()}
                     >
                         <div className="flex items-center justify-between mb-4">
-                            <h2 className="text-xl font-semibold text-fg-brandNeutral-primary">Add a friend</h2>
+                            <h2 className="text-xl font-normal text-black">Add a Friend</h2>
                             <button
                                 onClick={() => {
                                     setIsModalOpen(false);
                                     setAndrewId('');
                                 }}
-                                className="text-fg-brandNeutral-secondary hover:text-fg-brandNeutral-primary transition"
+                                className="text-fg-brandNeutral-secondary hover:text-fg-brandNeutral-primary transition ml-4"
                             >
                                 <X className="h-5 w-5" />
                             </button>
                         </div>
-                        <div className="space-y-4">
-                            <div>
-                                <label htmlFor="andrew-id" className="block text-sm font-medium text-fg-brandNeutral-primary mb-2">
-                                    Andrew ID
+                        <div className="space-y-4 flex-1">
+                            <div className="flex items-center gap-4">
+                                <label htmlFor="andrew-id" className="text-sm font-normal text-black whitespace-nowrap">
+                                    Andrew ID:
                                 </label>
                                 <input
                                     id="andrew-id"
                                     type="text"
                                     value={andrewId}
                                     onChange={(e) => setAndrewId(e.target.value)}
-                                    className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                                    placeholder="Enter Andrew ID"
+                                    className="w-70 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                    placeholder="Andrew ID"
                                 />
                             </div>
+                        </div>
+                        <div className="flex justify-end mt-10 -mb-4">
+                            <button className="cursor-pointer border rounded-full border-stroke-brandNeutral-1 flex items-center px-7 py-2 text-black hover:bg-bg-brandNeutral-secondary-hover transition">
+                                Add
+                            </button>
                         </div>
                     </div>
                 </div>

@@ -19,7 +19,7 @@ function RouteComponent() {
             <div className="p-6 bg-white">
                 <h1 className="text-2xl font-semibold text-gray-900 mb-6">Schedule</h1>
 
-                <div className="flex gap-4 mb-6 max-w-3xs">
+                <div className="flex gap-4 mb-6 max-w-md">
             
                     <div className="relative flex-1">
                         <select className="w-full appearance-none bg-white border border-gray-300 rounded-lg px-4 py-3 pr-10 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
