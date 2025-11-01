@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import Sidebar from '@/components/Sidebar';
+import { useState } from "react";
+import Sidebar from "@/components/Sidebar";
 
 interface ProfileLayoutProps {
   children: React.ReactNode;
@@ -15,4 +15,3 @@ export default function ProfileLayout({ children }: ProfileLayoutProps) {
     </div>
   );
 }
-

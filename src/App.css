@@ -1,3 +1,12 @@
 .App {
   min-height: 100vh;
 }
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh; /* Or 100vh */
+}
+
+.content {
+  flex-grow: 1;
+}

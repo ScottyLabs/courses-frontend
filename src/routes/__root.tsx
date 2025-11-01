@@ -16,12 +16,12 @@ export const Route = createRootRoute({
 
     return (
       <>
-        <div className="App h-screen flex flex-col ">
+        <div className="App min-h-screen flex flex-col ">
           {header}
           <div className="flex-1 min-h-0">
             <Outlet />
           </div>
-          <Footer />
+          <Footer/>
       </div>
         <TanstackDevtools
           config={{
