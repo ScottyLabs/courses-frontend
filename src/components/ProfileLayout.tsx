@@ -10,7 +10,10 @@ export default function ProfileLayout({ children }: ProfileLayoutProps) {
 
   return (
     <div className="md:flex flex-1 min-h-0">
-      <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
+      <Sidebar
+        isOpen={isSidebarOpen}
+        onClose={() => setIsSidebarOpen(!isSidebarOpen)}
+      />
       {children}
     </div>
   );
