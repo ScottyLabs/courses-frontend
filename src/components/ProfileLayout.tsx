@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Sidebar from "@/components/Sidebar";
+import Sidebar from "@/components/ProfileSidebar";
 
 interface ProfileLayoutProps {
   children: React.ReactNode;
@@ -10,11 +10,7 @@ export default function ProfileLayout({ children }: ProfileLayoutProps) {
 
   return (
     <div className="md:flex flex-1 min-h-0">
-      <Sidebar
-        isOpen={isSidebarOpen}
-        onClose={() => setIsSidebarOpen(!isSidebarOpen)}
-      />
       {children}
     </div>
-  );
+  ); 
 }
