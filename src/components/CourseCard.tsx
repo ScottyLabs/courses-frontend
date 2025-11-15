@@ -11,7 +11,7 @@ export default function CourseCard({ course }: CourseProps) {
         <div className="border border-bg-brandNeutral-secondary-pressed p-5 rounded-md shadow-md bg-bg-neutral-primary hover:bg-bg-brandNeutral-subtle-pressed transition">
             <div className="flex justify-between gap-1">
                 <div className="flex gap-2 items-center text-fg-brandNeutral-primary">
-                    <div className="text-lg font-bold mr-2">{course.code}</div>
+                    <div className="text-lg font-bold mr-2">{course.code}</div> 
                     <h2 className="text-lg font-medium">{course.title}</h2>
                 </div>
                 <LinkExternal01 className="cursor-pointer text-fg-brandNeutral-primary mt-[-4px] hover:text-fg-brand-secondary" />

@@ -1,5 +1,5 @@
 import type { Schedule } from "@/types";
-import { Clock, Hash02, LinkExternal01 } from "@scottylabs/corgi";
+import { Clock, Coins03, LinkExternal01 } from "@scottylabs/corgi";
 
 interface ScheduleProps {
     schedule: Schedule
@@ -14,10 +14,10 @@ export default function ScheduleCard({ schedule }: ScheduleProps) {
                 </div>
                 <LinkExternal01 className="cursor-pointer text-fg-brandNeutral-primary mt-[-4px] hover:text-fg-brand-secondary" />
             </div>
-            <div className="my-1 flex align-center items-center justify-center md:justify-between gap-2">
+            <div className="my-1 flex align-center align-self-stretch items-center justify-center md:justify-between gap-2">
                 <p className="text-sm text-fg-brandNeutral-primary text-fg-brandNeutral-secondary">{schedule.semester}</p>
-                <div className="text-fg-brandNeutral-primary flex gap-2 font-semibold">
-                    <span className="flex items-center justify-center text-sm pr-2 border-r-2 border-bg-brandNeutral-secondary-hover"><Hash02 className="h-5" /> Units: {schedule.units}</span>
+                <div className="mt-2 text-fg-brandNeutral-primary flex gap-2 font-semibold">
+                    <span className="flex items-center justify-center text-sm pr-2 border-r-2 border-bg-brandNeutral-secondary-hover"><Coins03 className="h-5" />{schedule.units} units</span>
                     <span className="flex items-center justify-center text-sm"><Clock className="h-5" /> {schedule.fce} hrs/week</span>
                 </div>
             </div>

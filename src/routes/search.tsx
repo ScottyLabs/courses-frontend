@@ -3,7 +3,7 @@ import { Clock, Coins03, LinkExternal01, Calendar, SearchMd} from "@scottylabs/c
 import { fakeCourses } from '@/util/fakeinfo';
 import React from 'react';
 
-export const Route = createFileRoute('/course/search')({
+export const Route = createFileRoute('/search')({
   component: RouteComponent,
 })
 
@@ -17,7 +17,6 @@ function RouteComponent() {
   );
   return (
     <div className="p-6 w-[1094px] p-[50px] pr-[33px] min-h-screen w-full overflow-y-auto">
-
       <div className="flex-shrink-0  py-[4px] px-[16px] items-center gap-2 flex-[1_0_0] self-stretch"> {/* Search bar */}
         <h4 className="font-medium leading-[1.4] mb-4 flex items-center gap-2 text-[#7A8FA3] font-family-Inter text-[20px]">
           <SearchMd className="flex-shrink-0 w-[20px] h-[20px]"/>
@@ -25,8 +24,8 @@ function RouteComponent() {
             type="search"
             value = {query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder = "Search courses by ID, description, name or keyword..."
-            className = "w-full border-none outline-none bg-transparent text-fg-s-primary placeholder:text-fg-brandNeutral-secondary-enabled font-family-Inter text-[20px] line-height-28px"
+            placeholder = " Search courses by ID, description, name or keyword..."
+            className = "w-full border-none outline-none bg-transparent text-fg-brandNeutral-primary placeholder:text-fg-brandNeutral-secondary-enabled font-family-Inter text-[20px]"
           />
          
         </h4>
