@@ -17,10 +17,10 @@ function RouteComponent() {
       .includes(query.toLowerCase())
   );
   return (
-    <div className="p-6 w-[1125px] p-[0px] pr-[0pxs] min-h-screen w-full overflow-y-auto">
+    <div className="pt-5 w-[1125px] pr-[0pxs] min-h-screen w-full overflow-y-auto">
 
       <div className="flex-shrink-0  py-[4px] px-[16px] items-center gap-2 flex-[1_0_0] self-stretch"> {/* Search bar */}
-        <h4 className="font-medium leading-[1.4] mb-4 flex items-center gap-2 text-[#7A8FA3] font-family-Inter text-[20px]">
+        <div className='pt-4'><h4 className="font-medium leading-[1.4] mb-4 flex items-center gap-2 text-[#7A8FA3] font-family-Inter text-[20px]">
           <SearchMd className="flex-shrink-0 w-[20px] h-[20px]" />
           <input
             type="search"
@@ -32,26 +32,38 @@ function RouteComponent() {
 
         </h4>
 
-        {/* Course search functionality to be implemented here */}
-        <div className="w-[1028px] h-[1px] bg-stroke-brandNeutral-1"></div>
-        {/*Result number*/}
+          {/* Course search functionality to be implemented here */}
+          <div className="w-[1028px] h-[1px] bg-stroke-brandNeutral-1"></div>
+          {/*Result number*/}
+        </div>
         <div>
           <p className="text-fg-brandNeutral-secondary text-14px font-semibold font-weight-600 mt-5">{filtered.length} results</p>
+        </div>
+        <div>
+          <select
+            className="border border-bg-brandNeutral-secondary-enabled  bg-bg-brandNeutral-secondary-enabled p-2 rounded-md mt-2"
+          >
+            <option value="relevance" className="text-fg-brandNeutral-primary">Sort by Relevance</option>
+            <option value="units-asc" className="text-fg-brandNeutral-primary">Sort by Units: Low to High</option>
+            <option value="units-desc" className="text-fg-brandNeutral-primary">Sort by Units: High to Low</option>
+            <option value="fce-asc" className="text-fg-brandNeutral-primary">Sort by FCE: Low to High</option>
+            <option value="fce-desc" className="text-fg-brandNeutral-primary">Sort by FCE: High to Low</option>
+          </select>
         </div>
       </div>
       <div className="border border-bg-brandNeutral-secondary-enabled  bg-bg-brandNeutral-secondary-enabled p-6">
         {filtered.map((course, index) => (
-          <div key={index} className="border border-bg-brandNeutral-secondary-pressed p-5 rounded-md shadow-md bg-bg-neutral-primary hover:bg-bg-brandNeutral-subtle-pressed transition mt-4">
+          <div key={index} className="border border-bg-brandNeutral-secondary-pressed p-5 rounded-md bg-bg-neutral-primary hover:bg-bg-brandNeutral-subtle-pressed transition mt-4">
             <p className="text-sm font-mono text-fg-brandNeutral-primary mb-2">{course.code}</p>
-            <h3 className="text-lg font-medium text-fg-brandNeutral-primary mb-2">{course.title}</h3>
+            <p className="text-lg font-medium text-fg-brandNeutral-primary mb-2">{course.title}</p>
             <p className="text-sm text-fg-brandNeutral-primary mb-2">{course.department}</p>
             <div className="flex gap-1 mb-2">
             </div>
           </div>
 
         ))}
-    
-    </div>
+
+      </div>
     </div >
   )
 }
