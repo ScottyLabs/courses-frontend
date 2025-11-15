@@ -2,12 +2,13 @@ import { createFileRoute } from '@tanstack/react-router'
 import { ChevronDown } from '@scottylabs/corgi';
 import CourseListing from '@/components/CourseListing';
 import {fakeCourses} from '@/util/fakeinfo';
+import ProfileLayout from '@/components/ProfileLayout';
 
 export const Route = createFileRoute('/profile/completed')({
   component: RouteComponent,
 })
 
-const courses = fakeCourses(10, false);
+const courses = fakeCourses(10, true);
 
 const DEPARTMENTS = ['48XXX Architecture', '60XXX Art', '18 Electrical & Computer Engineering'];
 const LEVELS = ['0XX-2XX', '3XX-4XX', '5XX-6XX', '7XX-9XX'];
@@ -15,6 +16,7 @@ const SEMESTERS = ["Fall", "Spring", "Summer"];
 
 function RouteComponent() {
     return (
+        <ProfileLayout>
         <div className="flex flex-col w-full">
             <div className="p-6 bg-white">
                 <h1 className="text-2xl font-semibold text-gray-900 mb-6">Courses Taken</h1>
@@ -52,5 +54,6 @@ function RouteComponent() {
             </div>
             <CourseListing courses={courses} />
         </div>
+        </ProfileLayout>
     );
 }

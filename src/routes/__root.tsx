@@ -3,7 +3,6 @@ import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import { TanstackDevtools } from '@tanstack/react-devtools'
 import Header from '@/components/Header'
 import CourseHeader from '@/components/CourseHeader'
-import Profile from '@/components/Sidebar'
 import Footer from '@/components/Footer'
 
 export const Route = createRootRoute({
@@ -17,13 +16,12 @@ export const Route = createRootRoute({
 
     return (
       <>
-        <div className="App h-screen flex flex-col ">
+        <div className="App min-h-screen flex flex-col ">
           {header}
-          <div className="md:flex flex-1 min-h-0">
-            <Profile isOpen={true} onClose={() => { }} />
+          <div className="flex-1 min-h-0">
             <Outlet />
           </div>
-          <Footer />
+          <Footer/>
       </div>
         <TanstackDevtools
           config={{

@@ -13,7 +13,7 @@
     "@scottylabs/corgi": "^0.3.1",
     "@tailwindcss/postcss": "^4.1.13",
     "@tanstack/react-devtools": "^0.2.2",
-    "@tanstack/react-router": "^1.130.2",
+    "@tanstack/react-router": "^1.133.27",
     "@tanstack/react-router-devtools": "^1.131.5",
     "@tanstack/router-plugin": "^1.121.2",
     "postcss": "^8.5.6",
