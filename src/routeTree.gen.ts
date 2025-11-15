@@ -18,6 +18,7 @@ import { Route as ProfileSavedRouteImport } from './routes/profile/saved'
 import { Route as ProfileFriendsRouteImport } from './routes/profile/friends'
 import { Route as ProfileCurrentRouteImport } from './routes/profile/current'
 import { Route as ProfileCompletedRouteImport } from './routes/profile/completed'
+import { Route as CourseSearchRouteImport } from './routes/course/search'
 
 const SearchRoute = SearchRouteImport.update({
   id: '/search',
@@ -64,11 +65,17 @@ const ProfileCompletedRoute = ProfileCompletedRouteImport.update({
   path: '/profile/completed',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CourseSearchRoute = CourseSearchRouteImport.update({
+  id: '/course/search',
+  path: '/course/search',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/schedules': typeof SchedulesRoute
   '/search': typeof SearchRoute
+  '/course/search': typeof CourseSearchRoute
   '/profile/completed': typeof ProfileCompletedRoute
   '/profile/current': typeof ProfileCurrentRoute
   '/profile/friends': typeof ProfileFriendsRoute
@@ -80,6 +87,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/schedules': typeof SchedulesRoute
   '/search': typeof SearchRoute
+  '/course/search': typeof CourseSearchRoute
   '/profile/completed': typeof ProfileCompletedRoute
   '/profile/current': typeof ProfileCurrentRoute
   '/profile/friends': typeof ProfileFriendsRoute
@@ -92,6 +100,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/schedules': typeof SchedulesRoute
   '/search': typeof SearchRoute
+  '/course/search': typeof CourseSearchRoute
   '/profile/completed': typeof ProfileCompletedRoute
   '/profile/current': typeof ProfileCurrentRoute
   '/profile/friends': typeof ProfileFriendsRoute
@@ -105,6 +114,7 @@ export interface FileRouteTypes {
     | '/'
     | '/schedules'
     | '/search'
+    | '/course/search'
     | '/profile/completed'
     | '/profile/current'
     | '/profile/friends'
@@ -116,6 +126,7 @@ export interface FileRouteTypes {
     | '/'
     | '/schedules'
     | '/search'
+    | '/course/search'
     | '/profile/completed'
     | '/profile/current'
     | '/profile/friends'
@@ -127,6 +138,7 @@ export interface FileRouteTypes {
     | '/'
     | '/schedules'
     | '/search'
+    | '/course/search'
     | '/profile/completed'
     | '/profile/current'
     | '/profile/friends'
@@ -139,6 +151,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SchedulesRoute: typeof SchedulesRoute
   SearchRoute: typeof SearchRoute
+  CourseSearchRoute: typeof CourseSearchRoute
   ProfileCompletedRoute: typeof ProfileCompletedRoute
   ProfileCurrentRoute: typeof ProfileCurrentRoute
   ProfileFriendsRoute: typeof ProfileFriendsRoute
@@ -212,6 +225,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProfileCompletedRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/course/search': {
+      id: '/course/search'
+      path: '/course/search'
+      fullPath: '/course/search'
+      preLoaderRoute: typeof CourseSearchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -219,6 +239,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SchedulesRoute: SchedulesRoute,
   SearchRoute: SearchRoute,
+  CourseSearchRoute: CourseSearchRoute,
   ProfileCompletedRoute: ProfileCompletedRoute,
   ProfileCurrentRoute: ProfileCurrentRoute,
   ProfileFriendsRoute: ProfileFriendsRoute,
