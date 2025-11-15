@@ -7,7 +7,7 @@ const HEADER_LINKS = [
   {
     text: "Courses",
     icon: <SearchMd />,
-    link: "/course/search"
+    link: "/course/search" // Should this link to a search page?
   },
   {
     text: "Instructors",
