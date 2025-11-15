@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useLocation } from "@tanstack/react-router";
-import { Clock, SearchMd, Star01, UserSquare, Sun, LogOut01, User02, BookOpen02 } from "@scottylabs/corgi";
+import { Clock, SearchMd, Star01, UserSquare, Sun, LogOut01, User02, BookOpen02, Calendar } from "@scottylabs/corgi";
 import { useState } from "react";
 import type { ReactElement } from "react";
 
@@ -8,7 +8,7 @@ const HEADER_LINKS = [
   {
     text: "Courses",
     icon: <BookOpen02 />,
-    link: "/course/search"
+    link: "/search"
   },
   {
     text: "Instructors",
@@ -19,6 +19,11 @@ const HEADER_LINKS = [
     text: "Schedules",
     icon: <Clock />,
     link: "/schedules"
+  },
+  {
+    text: "Final Schedule",
+    icon: <Calendar />,
+    link: "/finals"
   },
   {
     text: "Profile",

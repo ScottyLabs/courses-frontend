@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SearchRouteImport } from './routes/search'
+import { Route as FinalsRouteImport } from './routes/finals'
 import { Route as SchedulesRouteImport } from './routes/schedules'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProfileIndexRouteImport } from './routes/profile/index'
@@ -18,13 +19,15 @@ import { Route as ProfileSavedRouteImport } from './routes/profile/saved'
 import { Route as ProfileFriendsRouteImport } from './routes/profile/friends'
 import { Route as ProfileCurrentRouteImport } from './routes/profile/current'
 import { Route as ProfileCompletedRouteImport } from './routes/profile/completed'
-import { Route as CourseSearchRouteImport } from './routes/course/search'
 
 const SearchRoute = SearchRouteImport.update({
   id: '/search',
   path: '/search',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FinalsRoute = FinalsRouteImport.update({
+  id: '/finals',
+  path: '/finals',
 const SchedulesRoute = SchedulesRouteImport.update({
   id: '/schedules',
   path: '/schedules',
@@ -65,17 +68,12 @@ const ProfileCompletedRoute = ProfileCompletedRouteImport.update({
   path: '/profile/completed',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CourseSearchRoute = CourseSearchRouteImport.update({
-  id: '/course/search',
-  path: '/course/search',
-  getParentRoute: () => rootRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/finals': typeof FinalsRoute
   '/schedules': typeof SchedulesRoute
   '/search': typeof SearchRoute
-  '/course/search': typeof CourseSearchRoute
   '/profile/completed': typeof ProfileCompletedRoute
   '/profile/current': typeof ProfileCurrentRoute
   '/profile/friends': typeof ProfileFriendsRoute
@@ -85,9 +83,9 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/finals': typeof FinalsRoute
   '/schedules': typeof SchedulesRoute
   '/search': typeof SearchRoute
-  '/course/search': typeof CourseSearchRoute
   '/profile/completed': typeof ProfileCompletedRoute
   '/profile/current': typeof ProfileCurrentRoute
   '/profile/friends': typeof ProfileFriendsRoute
@@ -98,9 +96,9 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/finals': typeof FinalsRoute
   '/schedules': typeof SchedulesRoute
   '/search': typeof SearchRoute
-  '/course/search': typeof CourseSearchRoute
   '/profile/completed': typeof ProfileCompletedRoute
   '/profile/current': typeof ProfileCurrentRoute
   '/profile/friends': typeof ProfileFriendsRoute
@@ -112,9 +110,9 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/finals'
     | '/schedules'
     | '/search'
-    | '/course/search'
     | '/profile/completed'
     | '/profile/current'
     | '/profile/friends'
@@ -124,9 +122,9 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/finals'
     | '/schedules'
     | '/search'
-    | '/course/search'
     | '/profile/completed'
     | '/profile/current'
     | '/profile/friends'
@@ -136,9 +134,9 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/finals'
     | '/schedules'
     | '/search'
-    | '/course/search'
     | '/profile/completed'
     | '/profile/current'
     | '/profile/friends'
@@ -149,9 +147,9 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  FinalsRoute: typeof FinalsRoute
   SchedulesRoute: typeof SchedulesRoute
   SearchRoute: typeof SearchRoute
-  CourseSearchRoute: typeof CourseSearchRoute
   ProfileCompletedRoute: typeof ProfileCompletedRoute
   ProfileCurrentRoute: typeof ProfileCurrentRoute
   ProfileFriendsRoute: typeof ProfileFriendsRoute
@@ -169,6 +167,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SearchRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/finals': {
+      id: '/finals'
+      path: '/finals'
+      fullPath: '/finals'
+      preLoaderRoute: typeof FinalsRouteImport
     '/schedules': {
       id: '/schedules'
       path: '/schedules'
@@ -225,21 +228,14 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProfileCompletedRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/course/search': {
-      id: '/course/search'
-      path: '/course/search'
-      fullPath: '/course/search'
-      preLoaderRoute: typeof CourseSearchRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  FinalsRoute: FinalsRoute,
   SchedulesRoute: SchedulesRoute,
   SearchRoute: SearchRoute,
-  CourseSearchRoute: CourseSearchRoute,
   ProfileCompletedRoute: ProfileCompletedRoute,
   ProfileCurrentRoute: ProfileCurrentRoute,
   ProfileFriendsRoute: ProfileFriendsRoute,
