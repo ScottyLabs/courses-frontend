@@ -1,13 +1,14 @@
 import { Link } from "@tanstack/react-router";
-import { Clock, SearchMd, Star01, UserSquare, Sun, LogOut01, User02 } from "@scottylabs/corgi";
+import { useLocation } from "@tanstack/react-router";
+import { Clock, SearchMd, Star01, UserSquare, Sun, LogOut01, User02, BookOpen02 } from "@scottylabs/corgi";
 import { useState } from "react";
 import type { ReactElement } from "react";
 
 const HEADER_LINKS = [
   {
     text: "Courses",
-    icon: <SearchMd />,
-    link: "/search" // Should this link to a search page?
+    icon: <BookOpen02 />,
+    link: "/course/search"
   },
   {
     text: "Instructors",
@@ -61,11 +62,19 @@ type HeaderLinkProps = {
 };
 
 function HeaderLink({ text, icon, link }: HeaderLinkProps) {
+  const location = useLocation(); // returns ParsedLocation
+  const pathname = location.pathname; // get the actual path string
+  const isActive = pathname.startsWith(link); // check if this link is active
+
   return (
-    <Link to={link} className="[&.active]:text-fg-brand-secondary">
-      <div className="flex flex-row items-center justify-center gap-2 px-3 py-2 rounded-md hover:bg-gray-200 transition text-fg-brandNeutral-secondary" >
-        <span className="flex items-center text-fg-brandNeutral-secondary">{icon}</span>
-        <span className="mb-[-2px] text-fg-brandNeutral-secondary">{text}</span>
+    <Link to={link}>
+      <div
+        className={`flex flex-row items-center justify-center gap-2 px-3 py-2 rounded-md hover:bg-gray-200 transition ${
+          isActive ? "text-blue-500" : "text-fg-brandNeutral-secondary"
+        }`}
+      >
+        <span className="flex items-center">{icon}</span>
+        <span className="mb-[-2px]">{text}</span>
       </div>
     </Link>
   );
