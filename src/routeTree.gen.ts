@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SearchRouteImport } from './routes/search'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ProfileIndexRouteImport } from './routes/profile/index'
 import { Route as ProfileScheduleRouteImport } from './routes/profile/schedule'
 import { Route as ProfileSavedRouteImport } from './routes/profile/saved'
 import { Route as ProfileFriendsRouteImport } from './routes/profile/friends'
@@ -25,6 +26,11 @@ const SearchRoute = SearchRouteImport.update({
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileIndexRoute = ProfileIndexRouteImport.update({
+  id: '/profile/',
+  path: '/profile/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProfileScheduleRoute = ProfileScheduleRouteImport.update({
@@ -61,6 +67,7 @@ export interface FileRoutesByFullPath {
   '/profile/friends': typeof ProfileFriendsRoute
   '/profile/saved': typeof ProfileSavedRoute
   '/profile/schedule': typeof ProfileScheduleRoute
+  '/profile': typeof ProfileIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -70,6 +77,7 @@ export interface FileRoutesByTo {
   '/profile/friends': typeof ProfileFriendsRoute
   '/profile/saved': typeof ProfileSavedRoute
   '/profile/schedule': typeof ProfileScheduleRoute
+  '/profile': typeof ProfileIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -80,6 +88,7 @@ export interface FileRoutesById {
   '/profile/friends': typeof ProfileFriendsRoute
   '/profile/saved': typeof ProfileSavedRoute
   '/profile/schedule': typeof ProfileScheduleRoute
+  '/profile/': typeof ProfileIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -91,6 +100,7 @@ export interface FileRouteTypes {
     | '/profile/friends'
     | '/profile/saved'
     | '/profile/schedule'
+    | '/profile'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -100,6 +110,7 @@ export interface FileRouteTypes {
     | '/profile/friends'
     | '/profile/saved'
     | '/profile/schedule'
+    | '/profile'
   id:
     | '__root__'
     | '/'
@@ -109,6 +120,7 @@ export interface FileRouteTypes {
     | '/profile/friends'
     | '/profile/saved'
     | '/profile/schedule'
+    | '/profile/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -119,6 +131,7 @@ export interface RootRouteChildren {
   ProfileFriendsRoute: typeof ProfileFriendsRoute
   ProfileSavedRoute: typeof ProfileSavedRoute
   ProfileScheduleRoute: typeof ProfileScheduleRoute
+  ProfileIndexRoute: typeof ProfileIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -135,6 +148,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile/': {
+      id: '/profile/'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/profile/schedule': {
@@ -183,6 +203,7 @@ const rootRouteChildren: RootRouteChildren = {
   ProfileFriendsRoute: ProfileFriendsRoute,
   ProfileSavedRoute: ProfileSavedRoute,
   ProfileScheduleRoute: ProfileScheduleRoute,
+  ProfileIndexRoute: ProfileIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

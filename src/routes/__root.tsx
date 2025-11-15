@@ -1,29 +1,32 @@
-import { Outlet, createRootRoute, useRouter } from '@tanstack/react-router'
+import { Outlet, createRootRoute, useRouterState } from '@tanstack/react-router'
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import { TanstackDevtools } from '@tanstack/react-devtools'
 import Header from '@/components/Header'
 import CourseHeader from '@/components/CourseHeader'
-import Profile from '@/components/Sidebar'
+import Sidebar from '@/components/ProfileSidebar'
+import ScheduleSidebar from '@/components/ScheduleSidebar'
 import Footer from '@/components/Footer'
 
 export const Route = createRootRoute({
   component: () => {
-    const { location } = useRouter().state;
-    const pathname = location.pathname;
+    const pathname = useRouterState({ select: (s) => s.location.pathname })
 
     const header = pathname.startsWith('/course')
       ? <CourseHeader />
       : <Header />;
 
+    const isSchedulePage = pathname.startsWith('/schedules')
+    const leftSidebar = isSchedulePage ? (<ScheduleSidebar isOpen={true} onClose={() => { }} />) : (<Sidebar isOpen={true} onClose={() => { }} />)
+
     return (
       <>
-        <div className="App h-screen flex flex-col ">
+        <div className="App min-h-screen flex flex-col ">
           {header}
           <div className="md:flex flex-1 min-h-0">
-            <Profile isOpen={true} onClose={() => { }} />
+            {leftSidebar}
             <Outlet />
           </div>
-          <Footer />
+          <Footer/>
       </div>
         <TanstackDevtools
           config={{
