@@ -8,7 +8,7 @@ const HEADER_LINKS = [
   {
     text: "Courses",
     icon: <BookOpen02 />,
-    link: "/course/search"
+    link: "/search"
   },
   {
     text: "Instructors",
