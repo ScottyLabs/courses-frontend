@@ -26,8 +26,8 @@ export const Route = createRootRoute({
             {leftSidebar}
             <Outlet />
           </div>
-          <Footer/>
-      </div>
+          <Footer />
+        </div>
         <TanstackDevtools
           config={{
             position: 'bottom-left',
