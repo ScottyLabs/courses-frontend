@@ -7,7 +7,7 @@ const HEADER_LINKS = [
   {
     text: "Courses",
     icon: <SearchMd />,
-    link: "/course/search"
+    link: "/search"
   },
   {
     text: "Instructors",
