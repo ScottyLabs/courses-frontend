@@ -10,8 +10,8 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SearchRouteImport } from './routes/search'
-import { Route as FinalsRouteImport } from './routes/finals'
 import { Route as SchedulesRouteImport } from './routes/schedules'
+import { Route as FinalsRouteImport } from './routes/finals'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProfileIndexRouteImport } from './routes/profile/index'
 import { Route as ProfileScheduleRouteImport } from './routes/profile/schedule'
@@ -25,12 +25,14 @@ const SearchRoute = SearchRouteImport.update({
   path: '/search',
   getParentRoute: () => rootRouteImport,
 } as any)
-const FinalsRoute = FinalsRouteImport.update({
-  id: '/finals',
-  path: '/finals',
 const SchedulesRoute = SchedulesRouteImport.update({
   id: '/schedules',
   path: '/schedules',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FinalsRoute = FinalsRouteImport.update({
+  id: '/finals',
+  path: '/finals',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -167,16 +169,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SearchRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/finals': {
-      id: '/finals'
-      path: '/finals'
-      fullPath: '/finals'
-      preLoaderRoute: typeof FinalsRouteImport
     '/schedules': {
       id: '/schedules'
       path: '/schedules'
       fullPath: '/schedules'
       preLoaderRoute: typeof SchedulesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/finals': {
+      id: '/finals'
+      path: '/finals'
+      fullPath: '/finals'
+      preLoaderRoute: typeof FinalsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
