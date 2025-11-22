@@ -39,3 +39,13 @@ export function fakeFriends(count: number) {
   
   return FRIENDS;
 }
+
+export function fakeFinals(count: number) {
+  return Array.from({ length: count }, (_, i) => ({
+    code: `48${300 + i}A`,
+    day: 'Monday, December 67',
+    start: '8:30 AM',
+    end: '11:30 AM',
+    location: 'In Person To Be Scheduled after the Mini-2 Add Deadline'
+  }));
+}
