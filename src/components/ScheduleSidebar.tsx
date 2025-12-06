@@ -38,7 +38,7 @@ export default function ScheduleSidebar({ isOpen, onClose }: SidebarProps) {
   }, [schedules])
 
   return (
-    <aside className="w-80 bg-white border-r border-bg-brandNeutral-subtle-pressed flex flex-col">
+    <aside className="w-[418px] bg-white border-r border-bg-brandNeutral-subtle-pressed flex flex-col">
       <div className="flex items-center justify-between px-4 py-3 border-b border-stroke-brandNeutral-1">
         <div className="flex items-center gap-2">
           <span className="text-lg font-semibold text-fg-brandNeutral-primary">Schedule</span>

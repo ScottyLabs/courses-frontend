@@ -2,8 +2,9 @@ import { createFileRoute } from '@tanstack/react-router';
 import { Clock, Coins03, LinkExternal01, Calendar, SearchMd } from "@scottylabs/corgi";
 import { fakeCourses } from '@/util/fakeinfo';
 import React from 'react';
+import ProfileLayout from '@/components/ProfileLayout';
 
-export const Route = createFileRoute('/search')({
+export const Route = createFileRoute('/profile/search')({
   component: RouteComponent,
 })
 
@@ -36,18 +37,18 @@ function RouteComponent() {
           <div className="w-[1028px] h-[1px] bg-stroke-brandNeutral-1"></div>
           {/*Result number*/}
         </div>
-        <div>
+        <div className="">
           <p className="text-fg-brandNeutral-secondary text-14px font-semibold font-weight-600 mt-5">{filtered.length} results</p>
         </div>
         <div>
           <select
-            className="border border-bg-brandNeutral-secondary-enabled  bg-bg-brandNeutral-secondary-enabled p-2 rounded-md mt-2"
+            className="border mb-5 border-bg-brandNeutral-secondary-enabled  bg-bg-brandNeutral-secondary-enabled p-2 rounded-md mt-2"
           >
-            <option value="relevance" className="text-fg-brandNeutral-primary">Sort by Relevance</option>
-            <option value="units-asc" className="text-fg-brandNeutral-primary">Sort by Units: Low to High</option>
-            <option value="units-desc" className="text-fg-brandNeutral-primary">Sort by Units: High to Low</option>
-            <option value="fce-asc" className="text-fg-brandNeutral-primary">Sort by FCE: Low to High</option>
-            <option value="fce-desc" className="text-fg-brandNeutral-primary">Sort by FCE: High to Low</option>
+            <option value="show" className="text-fg-brandNeutral-primary">Show</option>
+            <option value="option2" className="text-fg-brandNeutral-primary">NA 1</option>
+            <option value="option3" className="text-fg-brandNeutral-primary">NA 2</option>
+            <option value="option4" className="text-fg-brandNeutral-primary">NA 3</option>
+            <option value="option5" className="text-fg-brandNeutral-primary">NA 4</option>
           </select>
         </div>
       </div>
