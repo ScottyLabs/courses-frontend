@@ -22,7 +22,7 @@ const HEADER_LINKS = [
   {
     text: "Schedules",
     icon: <Clock />,
-    link: "/schedules"
+    link: "profile/schedules"
   }
 ];
 

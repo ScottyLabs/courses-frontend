@@ -7,8 +7,8 @@ import type { ReactElement } from "react";
 const HEADER_LINKS = [
   {
     text: "Courses",
-    icon: <BookOpen02 />,
-    link: "/search"
+    icon: <SearchMd />,
+    link: "/profile/search" // Should this link to a search page?
   },
   {
     text: "Instructors",
@@ -18,7 +18,7 @@ const HEADER_LINKS = [
   {
     text: "Schedules",
     icon: <Clock />,
-    link: "/schedules"
+    link: "/profile/schedule"
   },
   {
     text: "Final Schedule",

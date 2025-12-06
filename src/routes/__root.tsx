@@ -19,13 +19,15 @@ export const Route = createRootRoute({
       ? <Header /> // Just changed CourseHeader to Header
       : <Header />;
 
-    const isSchedulePage = pathname.startsWith('/schedules')
-    const isSearchPage = pathname.includes('search')
+    const isSearchPage = pathname.includes('/search')
+    const isSchedulePage = pathname.includes('/schedule')
+    const isProfilePage = pathname.startsWith('/profile')
+
 
     let leftSidebar; //= isSchedulePage ? (<ScheduleSidebar isOpen={true} onClose={() => { }} />) : (<Sidebar isOpen={true} onClose={() => { }} />)
 
     if (isSearchPage) {
-      leftSidebar = <SearchSidebar isOpen = {true} onClose={()=> { }} />;
+      leftSidebar = <SearchSidebar isOpen={true} onClose={() => { }} />;
     } else if (isSchedulePage) {
       leftSidebar = <ScheduleSidebar isOpen={true} onClose={() => { }} />;
     } else {

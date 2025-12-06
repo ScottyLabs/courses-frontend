@@ -1,5 +1,7 @@
 import { useState } from "react";
 import Sidebar from "@/components/ProfileSidebar";
+import ScheduleSidebar from "@/components/ScheduleSidebar";
+import SearchSidebar from "@/components/SearchSidebar";
 
 interface ProfileLayoutProps {
   children: React.ReactNode;
