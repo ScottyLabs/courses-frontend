@@ -2,7 +2,6 @@ import { createFileRoute } from '@tanstack/react-router';
 import { Clock, Coins03, LinkExternal01, Calendar, SearchMd } from "@scottylabs/corgi";
 import { fakeCourses } from '@/util/fakeinfo';
 import React from 'react';
-import ProfileLayout from '@/components/ProfileLayout';
 
 export const Route = createFileRoute('/profile/search')({
   component: RouteComponent,
@@ -18,7 +17,8 @@ function RouteComponent() {
       .includes(query.toLowerCase())
   );
   return (
-    <div className="pt-5 w-[1125px] pr-[0pxs] min-h-screen w-full overflow-y-auto">
+    <div className="pt-5 flex-1 min-h-screen overflow-y-auto px-8">
+
 
       <div className="flex-shrink-0  py-[4px] px-[16px] items-center gap-2 flex-[1_0_0] self-stretch"> {/* Search bar */}
         <div className='pt-4'><h4 className="font-medium leading-[1.4] mb-4 flex items-center gap-2 text-[#7A8FA3] font-family-Inter text-[20px]">
@@ -37,18 +37,18 @@ function RouteComponent() {
           <div className="w-[1028px] h-[1px] bg-stroke-brandNeutral-1"></div>
           {/*Result number*/}
         </div>
-        <div className="">
+        <div>
           <p className="text-fg-brandNeutral-secondary text-14px font-semibold font-weight-600 mt-5">{filtered.length} results</p>
         </div>
         <div>
           <select
-            className="border mb-5 border-bg-brandNeutral-secondary-enabled  bg-bg-brandNeutral-secondary-enabled p-2 rounded-md mt-2"
+            className="border border-bg-brandNeutral-secondary-enabled  bg-bg-brandNeutral-secondary-enabled p-2 rounded-md mt-2"
           >
-            <option value="show" className="text-fg-brandNeutral-primary">Show</option>
-            <option value="option2" className="text-fg-brandNeutral-primary">NA 1</option>
-            <option value="option3" className="text-fg-brandNeutral-primary">NA 2</option>
-            <option value="option4" className="text-fg-brandNeutral-primary">NA 3</option>
-            <option value="option5" className="text-fg-brandNeutral-primary">NA 4</option>
+            <option value="relevance" className="text-fg-brandNeutral-primary">Sort by Relevance</option>
+            <option value="units-asc" className="text-fg-brandNeutral-primary">Sort by Units: Low to High</option>
+            <option value="units-desc" className="text-fg-brandNeutral-primary">Sort by Units: High to Low</option>
+            <option value="fce-asc" className="text-fg-brandNeutral-primary">Sort by FCE: Low to High</option>
+            <option value="fce-desc" className="text-fg-brandNeutral-primary">Sort by FCE: High to Low</option>
           </select>
         </div>
       </div>

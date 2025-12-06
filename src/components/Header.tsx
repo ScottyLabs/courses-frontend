@@ -7,7 +7,7 @@ const HEADER_LINKS = [
   {
     text: "Courses",
     icon: <SearchMd />,
-    link: "/search" // Should this link to a search page?
+    link: "/profile/search" // Should this link to a search page?
   },
   {
     text: "Instructors",
@@ -17,7 +17,7 @@ const HEADER_LINKS = [
   {
     text: "Schedules",
     icon: <Clock />,
-    link: "/schedules"
+    link: "/profile/schedule"
   },
   {
     text: "Profile",
