@@ -66,7 +66,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
   ];
 
   return (
-    <div className="w-80 bg-white border-r border-bg-brandNeutral-subtle-pressed">
+    <div className="w-[418px] bg-white border-r border-bg-brandNeutral-subtle-pressed">
       <div className="flex justify-end p-4">
         <button
           onClick={onClose}

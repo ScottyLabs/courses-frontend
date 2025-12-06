@@ -9,32 +9,15 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as SearchRouteImport } from './routes/search'
-import { Route as SchedulesRouteImport } from './routes/schedules'
-import { Route as FinalsRouteImport } from './routes/finals'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProfileIndexRouteImport } from './routes/profile/index'
+import { Route as ProfileSearchRouteImport } from './routes/profile/search'
 import { Route as ProfileScheduleRouteImport } from './routes/profile/schedule'
 import { Route as ProfileSavedRouteImport } from './routes/profile/saved'
 import { Route as ProfileFriendsRouteImport } from './routes/profile/friends'
 import { Route as ProfileCurrentRouteImport } from './routes/profile/current'
 import { Route as ProfileCompletedRouteImport } from './routes/profile/completed'
 
-const SearchRoute = SearchRouteImport.update({
-  id: '/search',
-  path: '/search',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SchedulesRoute = SchedulesRouteImport.update({
-  id: '/schedules',
-  path: '/schedules',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FinalsRoute = FinalsRouteImport.update({
-  id: '/finals',
-  path: '/finals',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -43,6 +26,11 @@ const IndexRoute = IndexRouteImport.update({
 const ProfileIndexRoute = ProfileIndexRouteImport.update({
   id: '/profile/',
   path: '/profile/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileSearchRoute = ProfileSearchRouteImport.update({
+  id: '/profile/search',
+  path: '/profile/search',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProfileScheduleRoute = ProfileScheduleRouteImport.update({
@@ -73,116 +61,81 @@ const ProfileCompletedRoute = ProfileCompletedRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/finals': typeof FinalsRoute
-  '/schedules': typeof SchedulesRoute
-  '/search': typeof SearchRoute
   '/profile/completed': typeof ProfileCompletedRoute
   '/profile/current': typeof ProfileCurrentRoute
   '/profile/friends': typeof ProfileFriendsRoute
   '/profile/saved': typeof ProfileSavedRoute
   '/profile/schedule': typeof ProfileScheduleRoute
+  '/profile/search': typeof ProfileSearchRoute
   '/profile': typeof ProfileIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/finals': typeof FinalsRoute
-  '/schedules': typeof SchedulesRoute
-  '/search': typeof SearchRoute
   '/profile/completed': typeof ProfileCompletedRoute
   '/profile/current': typeof ProfileCurrentRoute
   '/profile/friends': typeof ProfileFriendsRoute
   '/profile/saved': typeof ProfileSavedRoute
   '/profile/schedule': typeof ProfileScheduleRoute
+  '/profile/search': typeof ProfileSearchRoute
   '/profile': typeof ProfileIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/finals': typeof FinalsRoute
-  '/schedules': typeof SchedulesRoute
-  '/search': typeof SearchRoute
   '/profile/completed': typeof ProfileCompletedRoute
   '/profile/current': typeof ProfileCurrentRoute
   '/profile/friends': typeof ProfileFriendsRoute
   '/profile/saved': typeof ProfileSavedRoute
   '/profile/schedule': typeof ProfileScheduleRoute
+  '/profile/search': typeof ProfileSearchRoute
   '/profile/': typeof ProfileIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/finals'
-    | '/schedules'
-    | '/search'
     | '/profile/completed'
     | '/profile/current'
     | '/profile/friends'
     | '/profile/saved'
     | '/profile/schedule'
+    | '/profile/search'
     | '/profile'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/finals'
-    | '/schedules'
-    | '/search'
     | '/profile/completed'
     | '/profile/current'
     | '/profile/friends'
     | '/profile/saved'
     | '/profile/schedule'
+    | '/profile/search'
     | '/profile'
   id:
     | '__root__'
     | '/'
-    | '/finals'
-    | '/schedules'
-    | '/search'
     | '/profile/completed'
     | '/profile/current'
     | '/profile/friends'
     | '/profile/saved'
     | '/profile/schedule'
+    | '/profile/search'
     | '/profile/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  FinalsRoute: typeof FinalsRoute
-  SchedulesRoute: typeof SchedulesRoute
-  SearchRoute: typeof SearchRoute
   ProfileCompletedRoute: typeof ProfileCompletedRoute
   ProfileCurrentRoute: typeof ProfileCurrentRoute
   ProfileFriendsRoute: typeof ProfileFriendsRoute
   ProfileSavedRoute: typeof ProfileSavedRoute
   ProfileScheduleRoute: typeof ProfileScheduleRoute
+  ProfileSearchRoute: typeof ProfileSearchRoute
   ProfileIndexRoute: typeof ProfileIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/search': {
-      id: '/search'
-      path: '/search'
-      fullPath: '/search'
-      preLoaderRoute: typeof SearchRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/schedules': {
-      id: '/schedules'
-      path: '/schedules'
-      fullPath: '/schedules'
-      preLoaderRoute: typeof SchedulesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/finals': {
-      id: '/finals'
-      path: '/finals'
-      fullPath: '/finals'
-      preLoaderRoute: typeof FinalsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/': {
       id: '/'
       path: '/'
@@ -195,6 +148,13 @@ declare module '@tanstack/react-router' {
       path: '/profile'
       fullPath: '/profile'
       preLoaderRoute: typeof ProfileIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile/search': {
+      id: '/profile/search'
+      path: '/profile/search'
+      fullPath: '/profile/search'
+      preLoaderRoute: typeof ProfileSearchRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/profile/schedule': {
@@ -237,14 +197,12 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  FinalsRoute: FinalsRoute,
-  SchedulesRoute: SchedulesRoute,
-  SearchRoute: SearchRoute,
   ProfileCompletedRoute: ProfileCompletedRoute,
   ProfileCurrentRoute: ProfileCurrentRoute,
   ProfileFriendsRoute: ProfileFriendsRoute,
   ProfileSavedRoute: ProfileSavedRoute,
   ProfileScheduleRoute: ProfileScheduleRoute,
+  ProfileSearchRoute: ProfileSearchRoute,
   ProfileIndexRoute: ProfileIndexRoute,
 }
 export const routeTree = rootRouteImport
