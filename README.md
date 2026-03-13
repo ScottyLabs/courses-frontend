@@ -6,7 +6,7 @@ To run this application:
 
 ```bash
 bun install
-bunx --bun run start
+bun run start
 ```
 
 # Building For Production
@@ -14,7 +14,7 @@ bunx --bun run start
 To build this application for production:
 
 ```bash
-bunx --bun run build
+bun run build
 ```
 
 ## Testing
@@ -22,7 +22,7 @@ bunx --bun run build
 This project uses [Vitest](https://vitest.dev/) for testing. You can run the tests with:
 
 ```bash
-bunx --bun run test
+bun run test
 ```
 
 ## Styling
