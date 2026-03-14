@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useLocation } from "@tanstack/react-router";
-import { Clock, SearchMd, Star01, UserSquare, Sun, LogOut01, User02, BookOpen02, Calendar } from "@scottylabs/corgi";
+import { Clock, SearchMd, UserSquare, Sun, LogOut01, User02, Calendar } from "@scottylabs/corgi"; // Star01 and BookOpen02 removed
 import { useState } from "react";
 import type { ReactElement } from "react";
 

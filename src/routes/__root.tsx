@@ -21,7 +21,7 @@ export const Route = createRootRoute({
 
     const isSearchPage = pathname.includes('/search')
     const isSchedulePage = pathname.includes('/schedule')
-    const isProfilePage = pathname.startsWith('/profile')
+    // const isProfilePage = pathname.startsWith('/profile')
 
 
     let leftSidebar; //= isSchedulePage ? (<ScheduleSidebar isOpen={true} onClose={() => { }} />) : (<Sidebar isOpen={true} onClose={() => { }} />)

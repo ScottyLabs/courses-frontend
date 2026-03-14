@@ -31,7 +31,7 @@ export function fakeSchedule(count: number) {
 }
 
 export function fakeFriends(count: number) {
-  const FRIENDS = Array.from({ length: count }, (_, i) => ({
+  const FRIENDS = Array.from({ length: count }, () => ({
     name: `Andrew Carnegie`,
     department: 'Computer Science',
     sharedCourses: fakeCourses(1)

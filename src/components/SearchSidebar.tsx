@@ -1,4 +1,4 @@
-import { ChevronLeft, ChevronDown, GlobeSlated01, GlobeSlated02, Calendar, BookOpen02, GraduationHat01, Coins03 }
+import { ChevronLeft, ChevronDown, GlobeSlated02, Calendar, BookOpen02, GraduationHat01, Coins03 } // GlobeSlated01 removed
     from '@scottylabs/corgi';
 import { useState } from 'react';
 
@@ -21,7 +21,7 @@ export default function SearchSidebar({ isOpen, onClose }: SearchSidebarProps) {
     const [fceSpring, setFceSpring] = useState(true);
     const [fceSummer, setFceSummer] = useState(false);
     const [fceFall, setFceFall] = useState(true);
-    const [fcesOpen, setFcesOpen] = useState(false);
+    // const [fcesOpen, setFcesOpen] = useState(false); // do we need this state? It seems like we can just use the fceSemester state to determine if the FCE section is open or not.
 
     return (
         <aside className="w-[418px] bg-white border-r border-stroke-brandNeutral-1 flex flex-col">
@@ -221,7 +221,7 @@ export default function SearchSidebar({ isOpen, onClose }: SearchSidebarProps) {
                             setOfferedOpen(false);
                             setLevelOpen(false);
                             setGenEdOpen(false);
-                            setFcesOpen(false);
+                            // setFcesOpen(false);
                             // Reset FCE values
                             setFceSemester("None");
                             setFceSpring(true);
@@ -284,6 +284,8 @@ export default function SearchSidebar({ isOpen, onClose }: SearchSidebarProps) {
                             />
                             <span>Fall</span>
                         </label>
+
+                        
                     </div>
                 </div>
 

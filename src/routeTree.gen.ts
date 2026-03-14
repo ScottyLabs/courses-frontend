@@ -9,6 +9,8 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SchedulesRouteImport } from './routes/schedules'
+import { Route as FinalsRouteImport } from './routes/finals'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProfileIndexRouteImport } from './routes/profile/index'
 import { Route as ProfileSearchRouteImport } from './routes/profile/search'
@@ -18,6 +20,16 @@ import { Route as ProfileFriendsRouteImport } from './routes/profile/friends'
 import { Route as ProfileCurrentRouteImport } from './routes/profile/current'
 import { Route as ProfileCompletedRouteImport } from './routes/profile/completed'
 
+const SchedulesRoute = SchedulesRouteImport.update({
+  id: '/schedules',
+  path: '/schedules',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FinalsRoute = FinalsRouteImport.update({
+  id: '/finals',
+  path: '/finals',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -61,6 +73,8 @@ const ProfileCompletedRoute = ProfileCompletedRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/finals': typeof FinalsRoute
+  '/schedules': typeof SchedulesRoute
   '/profile/completed': typeof ProfileCompletedRoute
   '/profile/current': typeof ProfileCurrentRoute
   '/profile/friends': typeof ProfileFriendsRoute
@@ -71,6 +85,8 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/finals': typeof FinalsRoute
+  '/schedules': typeof SchedulesRoute
   '/profile/completed': typeof ProfileCompletedRoute
   '/profile/current': typeof ProfileCurrentRoute
   '/profile/friends': typeof ProfileFriendsRoute
@@ -82,6 +98,8 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/finals': typeof FinalsRoute
+  '/schedules': typeof SchedulesRoute
   '/profile/completed': typeof ProfileCompletedRoute
   '/profile/current': typeof ProfileCurrentRoute
   '/profile/friends': typeof ProfileFriendsRoute
@@ -94,6 +112,8 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/finals'
+    | '/schedules'
     | '/profile/completed'
     | '/profile/current'
     | '/profile/friends'
@@ -104,6 +124,8 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/finals'
+    | '/schedules'
     | '/profile/completed'
     | '/profile/current'
     | '/profile/friends'
@@ -114,6 +136,8 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/finals'
+    | '/schedules'
     | '/profile/completed'
     | '/profile/current'
     | '/profile/friends'
@@ -125,6 +149,8 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  FinalsRoute: typeof FinalsRoute
+  SchedulesRoute: typeof SchedulesRoute
   ProfileCompletedRoute: typeof ProfileCompletedRoute
   ProfileCurrentRoute: typeof ProfileCurrentRoute
   ProfileFriendsRoute: typeof ProfileFriendsRoute
@@ -136,6 +162,20 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/schedules': {
+      id: '/schedules'
+      path: '/schedules'
+      fullPath: '/schedules'
+      preLoaderRoute: typeof SchedulesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/finals': {
+      id: '/finals'
+      path: '/finals'
+      fullPath: '/finals'
+      preLoaderRoute: typeof FinalsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -197,6 +237,8 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  FinalsRoute: FinalsRoute,
+  SchedulesRoute: SchedulesRoute,
   ProfileCompletedRoute: ProfileCompletedRoute,
   ProfileCurrentRoute: ProfileCurrentRoute,
   ProfileFriendsRoute: ProfileFriendsRoute,
