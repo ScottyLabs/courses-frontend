@@ -9,7 +9,7 @@ bun install
 bun run start
 ```
 
-# Building For Production
+# Building For Production (currently unusable)
 
 To build this application for production:
 
@@ -21,7 +21,7 @@ bun run build
 
 This project uses [Vitest](https://vitest.dev/) for testing. You can run the tests with:
 
-```bash
+```bash 
 bun run test
 ```
 
