@@ -9,7 +9,7 @@ bun install
 bun run start
 ```
 
-# Building For Production (currently unusable)
+# Building For Production 
 
 To build this application for production:
 
