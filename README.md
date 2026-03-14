@@ -6,23 +6,23 @@ To run this application:
 
 ```bash
 bun install
-bunx --bun run start
+bun run start
 ```
 
-# Building For Production
+# Building For Production (currently unusable)
 
 To build this application for production:
 
 ```bash
-bunx --bun run build
+bun run build
 ```
 
 ## Testing
 
 This project uses [Vitest](https://vitest.dev/) for testing. You can run the tests with:
 
-```bash
-bunx --bun run test
+```bash 
+bun run test
 ```
 
 ## Styling
