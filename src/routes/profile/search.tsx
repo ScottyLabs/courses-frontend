@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { Clock, Coins03, LinkExternal01, Calendar, SearchMd } from "@scottylabs/corgi";
+import { SearchMd } from "@scottylabs/corgi"; // Clock, Coins03, LinkExternal01, Calendar removed
 import { fakeCourses } from '@/util/fakeinfo';
 import React from 'react';
 

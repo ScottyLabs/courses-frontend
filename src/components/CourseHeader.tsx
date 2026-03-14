@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Clock, SearchMd, Star01, UserSquare, Sun, LogOut01, User02 } from "@scottylabs/corgi";
+import { Clock, SearchMd, Star01, UserSquare, Sun, LogOut01 } from "@scottylabs/corgi";
 import { useState } from "react";
 import type { ReactElement } from "react";
 
