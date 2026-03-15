@@ -81,7 +81,7 @@ export interface FileRoutesByFullPath {
   '/profile/saved': typeof ProfileSavedRoute
   '/profile/schedule': typeof ProfileScheduleRoute
   '/profile/search': typeof ProfileSearchRoute
-  '/profile': typeof ProfileIndexRoute
+  '/profile/': typeof ProfileIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -120,7 +120,7 @@ export interface FileRouteTypes {
     | '/profile/saved'
     | '/profile/schedule'
     | '/profile/search'
-    | '/profile'
+    | '/profile/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -186,7 +186,7 @@ declare module '@tanstack/react-router' {
     '/profile/': {
       id: '/profile/'
       path: '/profile'
-      fullPath: '/profile'
+      fullPath: '/profile/'
       preLoaderRoute: typeof ProfileIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
